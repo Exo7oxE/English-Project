@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>English Project</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id="char_creator">
+		<p>You have 40 points to allocate to your stats.</p>
+		<p style="display: inline;">Name: </p><input id="char_name" type="text" style="width: 50px;"><br>
+		<p style="display: inline;">Health: </p><input id="max_health" type="text" style="width: 15px;"><br>
+		<p style="display: inline;">Strength: </p><input id="strength" type="text" style="width: 15px;"><br>
+		<p style="display: inline;">Defense: </p><input id="defense" type="text" style="width: 15px;"><br>
+		<p style="display: inline;">Stamina: </p><input id="max_stamina" type="text" style="width: 15px;"><br>
+		<button onclick="createCharacter()">Create Character</button>
+	</div>
+  <div id="game" style="display: none;">
+		<div id="stats">
+			<p>Name: <span id="char_name_display"></span></p>
+			<p>Health: <span id="health_display" class="health"></span></p>
+			<p>Strength: <span id="strength_display" class="strength"></span></p>
+			<p>Defense: <span id="defense_display" class="defense"></span></p>
+			<p>Stamina: <span id="stamina_display" class="stamina"></span></p>
+		</div>
+		<div id="fight_menu" style="display: none;">
+			<button id="attack" onclick="attack()">Attack</button>
+			<button id="block" onclick="block()">Block</button>
+			<button id="open_inventory" onclick="openInventory(); items()">Inventory</button>
+			<button id="open_book" onclick="openInfo()">Book</button>
+		</div>
+		<div id="adventure_menu">
+			<button id="go_left_button" onclick="decision('go left')">Go left</button>
+			<button id="go_right_button" onclick="decision('go right')">Go right</button>
+			<button id="go_forwards_button" onclick="decision('go forwards')" style="display: none;">Go forwards</button>
+			<button id="go_back_button" onclick="decision('go back')" style="display: none;">Go back</button>
+			<button id="go_down_button" onclick="decision('go down')" style="display: none;">Go down</button>
+			<button id="go_up_button" onclick="decision('go up')" style="display: none;">Climb ladder</button>
+			<button id="open_inventory" onclick="openInventory(); items()">Inventory</button>
+			<button id="open_equipment" onclick="openEquipment(); showEquipment()">Equipment</button>
+			<button id="open_book" onclick="openInfo()">Book</button>
+		</div>
+		<div id="inventory" style="display: none;">
+			<p style="color: darkgray">INVENTORY</p>
+			<div id="items"></div>
+		</div>
+		<div id="equipment" style="display: none;">
+			<p style="color: darkgray">EQUIPMENT</p>
+			<div id="equipment_items"></div>
+		</div>
+		<div id="book" style="display: none;">
+			<p style="color: darkgray"><span onclick="previousPage()">&lt</span> &nbsp &nbsp &nbsp &nbsp &nbsp INFO &nbsp &nbsp &nbsp &nbsp &nbsp <span onclick="nextPage()">&gt</span></p>
+<pre id="page1">
+<span class="health">Health</span> is the amount
+of damage you can 
+take before dying.
+Keep it above 0.
+You can restore it 
+with health potions.
+</pre>
+<pre id="page2" style="display: none;">
+<span class="strength">Strength</span> is what
+determines how much
+damage you can deal.
+Weapons can add to
+your base strength.
+</pre>
+<pre id="page3" style="display: none;">
+<span class="defense">Defense</span> is what
+determines how much
+damage will be
+subtracted from the
+enemy's attack. armor
+can add to your base
+defense and blocking
+will increase defense
+for one turn.
+</pre>
+<pre id="page4" style="display: none;">
+<span class="stamina">Stamina</span> is what
+determines how many
+times you can attack
+before you are tired.
+You regain 1 stamina
+per turn.
+</pre>
+<pre id="page5" style="display: none;">
+Goblins are small
+creatures with
+all around low stats.
+</pre>
+<pre id="page6" style="display: none;">
+Slimes are strange
+bulbous balls of gel
+that are rather weak
+but are durable due
+to their squishiness.
+</pre>
+<pre id="page7" style="display: none;">
+Skeletons are strong
+all-rounders that
+you should be
+cautious of.
+</pre>
+<pre id="page8" style="display: none;">
+Haunted Knights are
+suits of armor being
+controlled by a
+mysterious force.
+They have high attack
+and defense, but low
+health and stamina.
+</pre>
+<pre id="page9" style="display: none;">
+Health potions refill
+10 points of health.
+Stamina potions refill
+5 points of stamina.
+</pre>
+<pre id="page10" style="display: none;">
+Rage potions will
+increase your
+strength and raise
+crit chance	for
+the rest of 
+the battle.
+</pre>
+<pre id="page11" style="display: none;">
+Stone potions will
+increase your 
+defense and make
+fully blocked
+attacks deal 0
+damage for the
+rest of the battle.
+</pre>
+<pre id="page12" style="display: none;">
+Smoke bombs will
+increase the chance
+for an enemy to miss
+you for the rest of
+the battle.
+</pre>
+<pre id="page13" style="display: none;">
+A stamina bracelet
+will lower the
+amount of stamina it
+takes to attack from
+3 to 2 when worn.
+</pre>
+<pre id="page14" style="display: none;">
+armor will
+increase your
+defense by 5.
+</pre>
+<pre id="page15" style="display: none;">
+A sword will
+increase your
+strength by 5.
+</pre>
+<pre id="page16" style="display: none;">
+A shield will
+permanently
+make fully
+blocked attacks
+deal 0 damage.
+</pre>
+		</div>
+		<div id="text"></div>
+	</div>
+	<div id="end"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
