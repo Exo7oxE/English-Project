@@ -200,8 +200,8 @@ async function room(roomID) {
 		room(roomID)
 	} else if (roomID == 7) {
 		choice = ""
-		startFight()
-		await until(_ => in_battle == false)
+		textBox("A shield rests against the wall.")
+		getItem("shield")
 		textBox("You can go back, left, or right.")
 		leftB.style.display = "inline"
 		rightB.style.display = "inline"
