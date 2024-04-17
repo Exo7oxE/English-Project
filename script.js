@@ -379,8 +379,8 @@ async function room(roomID) {
 	} else if (roomID == 16) {
 		choice = ""
 		textBox("You find a rage poition and a stone potion on the ground.")
-		getItem("rage potion")
-		getItem("stone potion")
+		getItem("rage potion", 1)
+		getItem("stone potion", 1)
 		textBox("You can only go back")
 		leftB.style.display = "none"
 		rightB.style.display = "none"
