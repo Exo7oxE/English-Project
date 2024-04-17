@@ -333,6 +333,7 @@ async function room(roomID) {
 		downB.style.display = "none"
 		upB.style.display = "none"
 		backB.style.display = "none"
+		await until(_ => choice != "")
 		if (choice == "go left") {
 			textBox("You go left. The walls cave in behind you.")
 			roomID = 12
@@ -399,6 +400,7 @@ async function room(roomID) {
 		startFight()
 		await until(_ => in_battle == false)
 		textBox("You can go left, down, or forwards. You see a faint light in the forwards direction")
+		await until(_ => choice != "")
 		if (choice == "go left") {
 			textBox("You go left.")
 			roomID = 12
