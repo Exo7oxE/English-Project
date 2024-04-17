@@ -350,6 +350,7 @@ async function room(roomID) {
 		downB.style.display = "none"
 		upB.style.display = "inline"
 		backB.style.display = "inline"
+		await until(_ => choice != "")
 		if (choice == "go back") {
 			textBox("You go back.")
 			roomID = 10
@@ -620,7 +621,11 @@ function getItem(item, count) {
 	if (count > 1) {
 		textBox(`You got ${count} ${item}s.`)
 	} else {
-		textBox(`You got a ${item}.`)
+		if (item == "armor") {
+			textBox("You got a set of armor.")
+		} else {
+			textBox(`You got a ${item}.`)
+		}
 	}
 	
 	if (item == "health potion") {
